@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Test-happyface.unity
+- path: Assets/Scene/GameScenes/Level1.unity
   isLoaded: 1
   isActive: 1

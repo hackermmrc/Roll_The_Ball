@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ae5e6bac419e2a54cbfbceba5658555b
+timeCreated: 1529510751
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Blox BRK
+  fontNames:
+  - Blox BRK
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

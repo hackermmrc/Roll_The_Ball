@@ -7,14 +7,17 @@ public class playerMovement : MonoBehaviour {
     public float moveSpeed = 1000f;
     Rigidbody rb;
 
+    public Vector3 resetPosition;
     canvasController cc;
     public CollectiblesScript cs;
 
+    public GameObject checkpointCanvas;
 	// Use this for initialization
 	void Start () {
         rb = this.GetComponent<Rigidbody>();
         offset = (Camera.main.transform.position - transform.position);
         cc = GameObject.Find("Canvas").GetComponent<canvasController>();
+        resetPosition = (transform.position);
 	}
 	
 	// Update is called once per frame
@@ -27,19 +30,52 @@ public class playerMovement : MonoBehaviour {
         Vector3 unitVector = directionVector.normalized;
         Vector3 forceVector = unitVector * moveSpeed * Time.deltaTime;
 
+        
+
         rb.AddForce(forceVector);
+
+        if (rb.transform.position.y <= -10)
+        {
+            transform.position = resetPosition;
+        }
 
        
 	}
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "checkpoint")
+           
+        //Destroy(checkpointCanvas, 1.5f);
+        {
+            Instantiate(checkpointCanvas, transform.position, Quaternion.identity);
+            if (resetPosition != other.transform.position)
+            {
+                resetPosition = other.transform.position;
+
+            }
+        }
+
+     
+
+
         if (other.gameObject.tag == "Collectible")
         {
             cc.IncreaseScore(50);
              //isCollected = true;
-            ;
+            
 
 
         }
+        
+    
+   
+       
+
+        
+    }
+
+    void ReturnToCheckpoint()
+    {
+        transform.position = resetPosition;
     }
 }

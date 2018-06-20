@@ -8,15 +8,22 @@ public class CollectiblesScript : MonoBehaviour {
     public Vector3 textPosition = new Vector3(0, 1, 0);
     public bool isCollected = false;
     public GameObject GameText;
+    AudioSource audioSource;
+    bool played;
 	// Use this for initialization
 	void Start () {
-		
+        played = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (isCollected)
         {
+            played = true;
+            if (played == true)
+            {
+                
+            }
             Debug.Log("isCollected has been set True for me!");
             Destroy(this.gameObject, 1f);
             Disappear();
@@ -26,6 +33,8 @@ public class CollectiblesScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
             isCollected = true;
             Instantiate(GameText, transform.position + textPosition, Quaternion.identity);
         }

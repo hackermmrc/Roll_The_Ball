@@ -46,8 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CheckpointDisplay.cs" />
      <Compile Include="Assets\Scripts\CollectiblesScript.cs" />
+     <Compile Include="Assets\Scripts\LevelOnecontroller.cs" />
      <Compile Include="Assets\Scripts\canvasController.cs" />
+     <Compile Include="Assets\Scripts\checkpointdisplay.cs" />
      <Compile Include="Assets\Scripts\playerMovement.cs" />
      <Compile Include="Assets\TextController.cs" />
  <Reference Include="UnityEngine.UI">
